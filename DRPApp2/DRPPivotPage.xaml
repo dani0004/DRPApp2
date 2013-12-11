@@ -1,0 +1,234 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="DRPApp2.DRPPivotPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:delay="clr-namespace:Delay;assembly=PhonePerformance"
+    xmlns:converter="clr-namespace:DRPApp2"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <phone:PhoneApplicationPage.Resources>
+
+        <converter:ColourConverter x:Key="colourConverter"/>
+
+    </phone:PhoneApplicationPage.Resources>
+            <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <!--Pivot Control-->
+        <phone:Pivot >
+            <!--Pivot item one-->
+            <phone:Pivot.Title >
+                <Button Click="GoHome" Background="{StaticResource TransparentBrush}" BorderBrush="{StaticResource TransparentBrush}" >
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,20">
+                        <Image x:Name="image" Source="images/logo2.png" Height="50" Width="1920" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </Button>
+            </phone:Pivot.Title>
+         
+            
+                 <phone:PivotItem Header="Regional">
+                <phone:LongListSelector x:Name="RegionAllLLS" ItemsSource="{Binding Regions}" Tap="LLS_Tap" >
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                    <Grid x:Name="RegionsGrid"  Margin="0,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="220" />
+                        <RowDefinition Height="3" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="305*" />
+                        <ColumnDefinition Width="1*" />
+                       
+
+
+
+                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel  x:Name="reg0c2" Grid.Row="0" Grid.Column="3" Orientation="Vertical">
+
+                                        <TextBlock x:Name="reg0Txt2a" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Height="36"  Text="{Binding Regionid}"   Style="{StaticResource PhoneTextNormalStyle}" 
+                                                   Foreground="{StaticResource PhoneAccentBrush}" FontWeight="Bold" FontSize="24"    />
+        
+                                      <TextBlock x:Name="reg0Txt2" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Height="36" 
+                                                       Text="{Binding CDescr1}"   Style="{StaticResource PhoneTextNormalStyle}"
+                                                       Foreground="{Binding CStatus1, Converter={StaticResource colourConverter}}" />
+                                                             
+                                     <TextBlock x:Name="reg0Txt3" Grid.Row="0" Grid.Column="3" 
+                                                       HorizontalAlignment="Left" Height="36"  Text="{Binding CDescr2}"   
+                                                       Style="{StaticResource PhoneTextNormalStyle}" 
+                                                       Foreground="{Binding CStatus2, Converter={StaticResource colourConverter}}"    />
+                                      <TextBlock x:Name="reg0Txt4" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left"
+                                                       Height="36"  Text="{Binding CDescr3}"   Style="{StaticResource PhoneTextNormalStyle}"
+                                                       Foreground="{Binding CStatus3, Converter={StaticResource colourConverter}}"    />
+                                      <TextBlock x:Name="reg0Txt5" Grid.Row="0" Grid.Column="3" 
+                                                       HorizontalAlignment="Left" Height="36"  Text="{Binding CDescr4}"   
+                                                       Style="{StaticResource PhoneTextNormalStyle}" 
+                                                       Foreground="{Binding CStatus4, Converter={StaticResource colourConverter}}"   />
+                   
+                                      <TextBlock x:Name="reg0Txt6" Grid.Row="0" Grid.Column="3" 
+                                                       HorizontalAlignment="Left" Height="36"  Text="{Binding CDescr5}"  
+                                                       Style="{StaticResource PhoneTextNormalStyle}" 
+                                                       Foreground="{Binding CStatus5, Converter={StaticResource colourConverter}}"   />
+              
+                                    <TextBlock x:Name="reg0Txt7" Grid.Row="0" Grid.Column="3" 
+                                                       HorizontalAlignment="Left" Height="36"  Text="{Binding CDescr6}"   
+                                                       Style="{StaticResource PhoneTextNormalStyle}" 
+                                                       Foreground="{Binding CStatus6, Converter={StaticResource colourConverter}}"   />
+                                      
+                                          <Image delay:LowProfileImageLoader.UriSource="{Binding Separator}"   Width="500" Height="2" /> 
+                                        <Image Source="images/separator.png"   Width="500" Height="2" />
+
+                                    </StackPanel>
+
+
+
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector > 
+
+            </phone:PivotItem>
+
+           
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="Utilities">
+                <phone:LongListSelector x:Name="RegionAllLLS2" ItemsSource="{Binding Regions}" Tap="LLS_Tap" >
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <Grid x:Name="RegionsGrid3"  Margin="12,0,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="220" />
+                        <RowDefinition Height="3" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="700*" />
+                        <ColumnDefinition Width="1*" />
+        
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel  x:Name="reg0c21" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                        <TextBlock x:Name="reg0Txt23a" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Height="36"  
+                                   Text="{Binding Regionid}"   Style="{StaticResource PhoneTextNormalStyle}"
+                                   Foreground="{StaticResource PhoneAccentBrush}" FontWeight="Bold" FontSize="24"    />
+                        <TextBlock x:Name="reg0Txt21" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="36"
+                                   Text="{Binding TDescr1}"   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding TStatus1, Converter={StaticResource colourConverter}}"    />
+                        <TextBlock x:Name="reg0Txt31" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="36"
+                                   Text="{Binding TDescr2}"   Style="{StaticResource PhoneTextNormalStyle}"
+                                   Foreground="{Binding TStatus2, Converter={StaticResource colourConverter}}"    />
+                        <TextBlock x:Name="reg0Txt41" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="36"
+                                   Text="{Binding TDescr3}"   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding TStatus3, Converter={StaticResource colourConverter}}"    />
+                        <TextBlock x:Name="reg0Txt51" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="36"
+                                   Text="{Binding TDescr4}"   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding TStatus4, Converter={StaticResource colourConverter}}"   />
+                        <TextBlock x:Name="reg0Txt61" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Height="36"
+                                   Text="{Binding TDescr4}"   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding TStatus5, Converter={StaticResource colourConverter}}"   />
+                        <Image delay:LowProfileImageLoader.UriSource="{Binding Separator}"   Width="500" Height="2" />
+                                        <Image Source="images/separator.png"   Width="500" Height="2" />
+                                    </StackPanel>
+
+                </Grid>
+                </StackPanel>
+                </DataTemplate>
+                </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector >
+            </phone:PivotItem>
+
+            <!--Pivot item three-->
+            <phone:PivotItem Header="Medical">
+                <phone:LongListSelector x:Name="RegionAllLLS3" ItemsSource="{Binding Regions}" Tap="LLS_Tap" >
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                <Grid x:Name="RegionsGrid2"  Margin="12,0,12,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="220" />
+                        <RowDefinition Height="3" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="700*" />
+                        <ColumnDefinition Width="1*" />
+                       
+
+
+
+                    </Grid.ColumnDefinitions>
+
+
+                    <StackPanel  x:Name="reg0c22" Grid.Row="0" Grid.Column="1" Orientation="Vertical">
+                        <TextBlock x:Name="reg0Txt22a" Grid.Row="0" Grid.Column="3" 
+                                   HorizontalAlignment="Left" Height="36"  
+                                   Text="{Binding Regionid}"   
+                                   Style="{StaticResource PhoneTextNormalStyle}"
+                                   Foreground="{StaticResource PhoneAccentBrush}" FontWeight="Bold" FontSize="24"    />
+                        <TextBlock x:Name="reg0Txt22" Grid.Row="0" Grid.Column="1" 
+                                   HorizontalAlignment="Left" Height="36"  
+                                   Text="{Binding HDescr1}"   
+                                   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding HStatus1, Converter={StaticResource colourConverter}}"    />
+                        <TextBlock x:Name="reg0Txt32" Grid.Row="0" Grid.Column="1"
+                                   HorizontalAlignment="Left" Height="36"  
+                                   Text="{Binding HDescr2}"   
+                                   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding HStatus2, Converter={StaticResource colourConverter}}"    />
+                        <TextBlock x:Name="reg0Txt42" Grid.Row="0" Grid.Column="1" 
+                                   HorizontalAlignment="Left" Height="36"  
+                                   Text="{Binding HDescr3}"   
+                                   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding HStatus3, Converter={StaticResource colourConverter}}"    />
+                        <TextBlock x:Name="reg0Txt52" Grid.Row="0" Grid.Column="1"
+                                   HorizontalAlignment="Left" Height="36"  
+                                   Text="{Binding HDescr4}"   
+                                   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding HStatus4, Converter={StaticResource colourConverter}}"   />
+                        <TextBlock x:Name="reg0Txt62" Grid.Row="0" Grid.Column="1" 
+                                   HorizontalAlignment="Left" Height="36"  
+                                   Text="{Binding HDescr4}"   
+                                   Style="{StaticResource PhoneTextNormalStyle}" 
+                                   Foreground="{Binding HStatus4, Converter={StaticResource colourConverter}}"   />
+                        <Image delay:LowProfileImageLoader.UriSource="{Binding Separator}"   Width="500" Height="2" />
+                                        <Image Source="images/separator.png"   Width="500" Height="2" />
+                                    </StackPanel>
+                </Grid>
+                     </StackPanel>
+                     </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector >
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Default" Opacity="1.0" >
+
+            <shell:ApplicationBarIconButton IconUri="/images/ic_contacts.png." Text="contacts" Click="ApplicationBarIconButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/images/ic_places.png" Text="maps" Click="ApplicationBarIconButton_Click" />
+            <shell:ApplicationBarIconButton IconUri="/images/questionmark.png" Text="about" Click="ApplicationBarIconButton_Click" />
+            <!--    <shell:ApplicationBarIconButton IconUri="/images/feature.calendar.png" Text="appt" Click="ApplicationBarIconButton_Click" /> -->
+
+
+
+
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+</phone:PhoneApplicationPage>
